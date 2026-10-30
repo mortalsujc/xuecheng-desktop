@@ -1,0 +1,48 @@
+{
+  "name": "xuecheng-desktop",
+  "productName": "学丞桌面版",
+  "version": "1.0.0",
+  "description": "学丞（ixuecheng.cn）网页版桌面客户端：独立窗口、记住登录、快捷键与下载支持。非官方应用，仅套壳官方网页版。",
+  "main": "main.js",
+  "author": "xuecheng-desktop contributors",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "cn.xuecheng.desktop",
+    "productName": "学丞桌面版",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js"
+    ],
+    "win": {
+      "icon": "icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "学丞桌面版",
+      "artifactName": "学丞桌面版-Setup-${version}.${ext}"
+    }
+  }
+}
